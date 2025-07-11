@@ -3,17 +3,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-
-interface ContactForm {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+import axios from "axios";
+import { ContactFormType } from "@/types/contact-form.type";
 
 const Contact = () => {
-  const [formData, setFormData] = useState<ContactForm>({
+  const [formData, setFormData] = useState<ContactFormType>({
     firstName: "",
     lastName: "",
     email: "",
@@ -76,13 +70,11 @@ const Contact = () => {
     setStatus({});
 
     try {
-      // Simulate API call - replace with actual email service
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await axios.post("/api/contact", formData);
 
       setStatus({
-        success: true,
-        message:
-          "Thanks for reaching out! I'll get back to you within 24 hours.",
+        success: response.data?.success,
+        message: response.data?.message,
       });
       setButtonText("Message Sent!");
 
@@ -100,10 +92,12 @@ const Contact = () => {
         setButtonText("Send Message");
         setStatus({});
       }, 4000);
-    } catch (error) {
+    } catch (error: any) {
       setStatus({
         success: false,
-        message: "Something went wrong. Please try again or email me directly.",
+        message:
+          error.response?.data?.error ||
+          "Something went wrong. Please try again or email me directly.",
       });
       setButtonText("Send Message");
     } finally {
