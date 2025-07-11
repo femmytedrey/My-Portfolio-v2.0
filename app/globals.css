@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Centra';
+  src: url('/assets/font/CentraNo2-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Centra';
+  src: url('/assets/font/CentraNo2-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Centra';
+  src: url('/assets/font/CentraNo2-Book.ttf') format('truetype');
+  font-weight: 400;
+}
+
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+body {
+  /* background: var(--background); */
+  /* color: var(--foreground); */
+  font-family: 'Centra', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.updown-animation {
+  animation: updown 3s linear infinite;
+}
