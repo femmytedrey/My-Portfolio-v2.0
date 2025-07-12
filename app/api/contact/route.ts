@@ -1,4 +1,4 @@
-import { sendEmail } from "@/helper/mailer";
+import { sendEmail } from "@/lib/util/mailer";
 import { ContactFormType } from "@/types/contact-form.type";
 import { NextResponse, NextRequest } from "next/server";
 import validator from "validator";
@@ -69,7 +69,7 @@ export const POST = async (request: NextRequest) => {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error("Contact API Error:", error);
+    // console.error("Contact API Error:", error);
     return NextResponse.json(
       { error: "Something went wrong. Please try again." },
       { status: 500 }

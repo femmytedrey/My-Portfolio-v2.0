@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { AlertCircle, RefreshCw } from "lucide-react";
-import HeaderSection from "./reusable_components/header-section";
+import HeaderSection from "../layout/header-section";
 import axios, { AxiosError } from "axios";
-import FeaturedProjectSkeleton from "./loader/featured-project.loader";
+import FeaturedProjectSkeleton from "../loaders/featured-project.loader";
 import { ProjectType } from "@/types/project.type";
-import ProjectModal from "./project-modal";
-import { categories } from "./data/project-data";
+import ProjectModal from "../modals/project-modal";
+import { categories } from "../../data/project-data";
 import AllProject from "./all-project";
 import FeaturedProject from "./featured-project";
 import { motion, AnimatePresence } from "motion/react";
@@ -119,8 +119,8 @@ const Projects = () => {
               <motion.button
                 initial={{ scale: 1, y: 0 }}
                 whileTap={{ y: 5 }}
-                whileHover={{scale: 1.1}}
-                transition={{duration: 0.3}}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 font-semibold text-sm sm:text-base ${
@@ -150,11 +150,11 @@ const Projects = () => {
       {/* Project Modal */}
       <AnimatePresence>
         {selectedProject && (
-        <ProjectModal
-          selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject}
-        />
-      )}
+          <ProjectModal
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
+          />
+        )}
       </AnimatePresence>
     </section>
   );

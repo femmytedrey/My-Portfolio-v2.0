@@ -1,10 +1,10 @@
 import { ProjectType } from "@/types/project.type";
 import React from "react";
-import ProjectSkeleton from "./loader/project-skeleton";
-import { categories } from "./data/project-data";
+import ProjectSkeleton from "../loaders/project-skeleton";
+import { categories } from "../../data/project-data";
 import { ArrowRight, Code, ExternalLink, Github, Star } from "lucide-react";
 import Image from "next/image";
-import { getStatusColor, getStatusText } from "@/util/util";
+import { getStatusColor, getStatusText } from "@/lib/util/util";
 
 interface AllProjectProps {
   isLoading: boolean;
@@ -43,7 +43,7 @@ const AllProject = ({
       )}
 
       {filteredProjects.length === 0 && !isLoading && !error && (
-        <div className="flex flex-col items-center justify-center min-h-[300px] text-center">
+        <div className="flex flex-col items-center justify-center min-h-[388px] text-center">
           <div className="bg-gray-800/50 border border-gray-700 rounded-full p-6 mb-6">
             <Code className="w-16 h-16 text-gray-400" />
           </div>

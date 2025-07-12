@@ -1,13 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { 
-  Mail, 
-  Phone, 
-  MapPin,
-  Heart
-} from "lucide-react";
-import SocialLink from "./reusable_components/social-link";
+import { Mail, Phone, MapPin, Heart } from "lucide-react";
+import SocialLink from "../ui/social-link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,11 +10,9 @@ const Footer = () => {
   return (
     <footer className="bg-[#121212] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
-        
         {/* Main Footer */}
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
             {/* Logo & Contact */}
             <div>
               <div className="mb-6">
@@ -36,13 +29,19 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center text-gray-300">
                   <Mail className="w-4 h-4 mr-3 text-gray-400" />
-                  <a href="mailto:hello@femidev.com" className="hover:text-white transition-colors">
+                  <a
+                    href="mailto:hello@femidev.com"
+                    className="hover:text-white transition-colors"
+                  >
                     femmytedrey@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <Phone className="w-4 h-4 mr-3 text-gray-400" />
-                  <a href="tel:+15551234567" className="hover:text-white transition-colors">
+                  <a
+                    href="tel:+15551234567"
+                    className="hover:text-white transition-colors"
+                  >
                     +234 (906) 740-1594
                   </a>
                 </div>
@@ -55,7 +54,9 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex flex-col md:items-end">
-              <h4 className="text-lg font-semibold mb-4 text-white text-start">Follow Me</h4>
+              <h4 className="text-lg font-semibold mb-4 text-white text-start">
+                Follow Me
+              </h4>
               <SocialLink />
             </div>
           </div>

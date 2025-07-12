@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Project } from "@/models/projectModel";
-import { connectToDb } from "@/dbConfig/connectToDb";
+import { connectToDb } from "@/lib/dbConfig/connectToDb";
 
 connectToDb();
 
@@ -28,7 +28,7 @@ export const GET = async () => {
       projects: transformedProjects,
     });
   } catch (error) {
-    console.error("Get projects error:", error);
+    // console.error("Get projects error:", error);
     return NextResponse.json(
       { error: "Failed to fetch projects" },
       { status: 500 }
@@ -49,6 +49,7 @@ export const POST = async (request: NextRequest) => {
       featured,
       liveUrl,
       githubUrl,
+      date,
       status,
     } = reqBody;
 
@@ -62,6 +63,7 @@ export const POST = async (request: NextRequest) => {
       featured,
       liveUrl,
       githubUrl,
+      date,
       status,
     });
 

@@ -1,14 +1,24 @@
 import { ProjectType } from "@/types/project.type";
-import { getStatusColor, getStatusText } from "@/util/util";
-import { ArrowRight, Calendar, ExternalLink, Eye, Github, Star } from "lucide-react";
+import { getStatusColor, getStatusText } from "@/lib/util/util";
+import {
+  ArrowRight,
+  Calendar,
+  ExternalLink,
+  Eye,
+  Github,
+  Star,
+} from "lucide-react";
 import Image from "next/image";
 
 interface FeaturedProjectProps {
-    projects: ProjectType[];
-    setSelectedProject: (project: ProjectType | null) => void;
+  projects: ProjectType[];
+  setSelectedProject: (project: ProjectType | null) => void;
 }
-const FeaturedProject = ({projects, setSelectedProject} :FeaturedProjectProps) => {
-      const featuredProjects = projects.filter((project) => project.featured);
+const FeaturedProject = ({
+  projects,
+  setSelectedProject,
+}: FeaturedProjectProps) => {
+  const featuredProjects = projects.filter((project) => project.featured);
   return (
     <div className="mb-20 transition-all duration-1000 delay-400">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

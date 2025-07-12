@@ -1,11 +1,11 @@
 import BackToTop from "@/components/back-to-top";
-import Banner from "@/components/banner";
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
-import { Navbar } from "@/components/navbar";
-import Project from "@/components/project";
-import Skills from "@/components/skills";
-import ScrollIndicator from "@/util/scroll-indicator";
+import Banner from "@/components/sections/banner";
+import Contact from "@/components/sections/contact";
+import Footer from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
+import Project from "@/components/sections/project";
+import Skills from "@/components/sections/skills";
+import ScrollIndicator from "@/lib/util/scroll-indicator";
 
 export default function Home() {
   return (

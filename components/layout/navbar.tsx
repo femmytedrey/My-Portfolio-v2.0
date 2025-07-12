@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AlignJustify } from "lucide-react";
-import SocialLink from "./reusable_components/social-link";
+import SocialLink from "../ui/social-link";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");

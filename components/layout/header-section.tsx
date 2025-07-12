@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import SectionBadge from "./section_badge";
+import SectionBadge from "../ui/section_badge";
 
 type HeaderSectionProps = {
   badge: string;

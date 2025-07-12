@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Download } from "lucide-react";
 import { motion } from "motion/react";
-import HeaderSection from "./reusable_components/header-section";
-import { categories, skills } from "./data/skills";
+import HeaderSection from "../layout/header-section";
+import { categories, skills } from "../../data/skills";
 import { Links } from "@/types/link.type";
 
 const Skills = () => {

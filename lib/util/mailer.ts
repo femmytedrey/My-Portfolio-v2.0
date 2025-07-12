@@ -82,7 +82,7 @@ export const sendEmail = async ({ data }: sendEmailProp) => {
       confirmationId: confirmation.messageId,
     };
   } catch (error) {
-    console.error("Email error: ", error);
+    // console.error("Email error: ", error);
     throw new Error("Failed to send emails");
   }
 };

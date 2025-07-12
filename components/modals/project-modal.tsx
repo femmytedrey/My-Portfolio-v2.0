@@ -1,8 +1,8 @@
 import { ProjectType } from "@/types/project.type";
-import { getStatusColor, getStatusText } from "@/util/util";
 import { ExternalLink, Github, X } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { getStatusColor, getStatusText } from "@/lib/util/util";
 
 interface ProjectModalProps {
   selectedProject: ProjectType;
