@@ -1,9 +1,7 @@
 import {
-  Download,
   Code,
   Database,
   Globe,
-  Smartphone,
   Server,
   Palette,
 } from "lucide-react";

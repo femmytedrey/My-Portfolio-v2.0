@@ -1,7 +1,7 @@
 import { sendEmail } from "@/helper/mailer";
 import { ContactFormType } from "@/types/contact-form.type";
 import { NextResponse, NextRequest } from "next/server";
-const validator = require("validator");
+import validator from "validator";
 
 export const GET = () => {
   return NextResponse.json({

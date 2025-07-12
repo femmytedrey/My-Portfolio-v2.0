@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { ContactFormType } from "@/types/contact-form.type";
 
 const Contact = () => {
@@ -92,13 +92,18 @@ const Contact = () => {
         setButtonText("Send Message");
         setStatus({});
       }, 4000);
-    } catch (error: any) {
-      setStatus({
-        success: false,
-        message:
-          error.response?.data?.error ||
-          "Something went wrong. Please try again or email me directly.",
-      });
+    } catch (error) {
+      let errorMessage = "Something went wrong";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      } else if (error && typeof error === "object" && "response" in error) {
+        const axiosError = error as AxiosError<{ error?: string }>;
+        errorMessage = axiosError.response?.data?.error || "API Error";
+      }
+      setStatus({ success: false, message: errorMessage });
       setButtonText("Send Message");
     } finally {
       setIsSubmitting(false);
@@ -129,11 +134,11 @@ const Contact = () => {
           <div className="order-1 lg:order-2">
             <div className="mb-10">
               <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                Let's work together
+                Let&apos;s work together
               </h2>
               <p className="text-xl text-white/80 leading-relaxed">
-                Have a project in mind? I'd love to hear about it. Send me a
-                message and let's create something amazing.
+                Have a project in mind? I&apos;d love to hear about it. Send me
+                a message and let&apos;s create something amazing.
               </p>
             </div>
 

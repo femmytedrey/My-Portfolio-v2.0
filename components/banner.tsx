@@ -73,7 +73,7 @@ const Banner = () => {
             transition={{ delay: 0.7, duration: 0.7 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
           >
-            Hi, I'm FemiDev!{" "}
+            Hi, I&apos;m FemiDev!{" "}
             <span className="text-accent wrap block sm:inline mt-2 sm:mt-0">
               {text}
             </span>
@@ -85,7 +85,7 @@ const Banner = () => {
             transition={{ delay: 1, duration: 0.7 }}
             className="max-w-xl mx-auto lg:mx-0 text-gray-200 text-base sm:text-lg leading-relaxed"
           >
-            I'm a web developer with expertise in both frontend and backend
+            I&apos;m a web developer with expertise in both frontend and backend
             development. From crafting intuitive user interfaces to building
             robust backend systems, I create seamless and scalable digital
             experiences.
@@ -100,7 +100,7 @@ const Banner = () => {
             <Link href="#connect">
               <button className="group relative overflow-hidden border border-white text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base hover:scale-105 transition-transform duration-300">
                 <span className="relative z-10 transition-all group-hover:text-black flex items-center justify-center">
-                  Let's Connect{" "}
+                  Let&apos;s Connect{" "}
                   <ArrowRightCircle className="inline ml-2" size={18} />
                 </span>
                 <span className="absolute inset-0 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0"></span>

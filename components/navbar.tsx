@@ -14,10 +14,6 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const onUpdateActiveLink = (link: string) => {
-    setActiveLink(link);
-  };
-
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
@@ -145,7 +141,7 @@ export const Navbar = () => {
           <Link href="#connect" className="order-1 md:order-2">
             <button className="relative overflow-hidden group border border-white text-white py-3 px-6">
               <span className="relative z-10 transition-colors duration-500 group-hover:text-black">
-                Let's Connect
+                Let&apos;s Connect
               </span>
               <span className="absolute inset-0 bg-white w-0 group-hover:w-full transition-all duration-500 ease-in-out z-0"></span>
             </button>

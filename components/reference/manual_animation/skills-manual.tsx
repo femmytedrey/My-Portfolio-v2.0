@@ -5,7 +5,6 @@ import {
   Code,
   Database,
   Globe,
-  Smartphone,
   Server,
   Palette,
 } from "lucide-react";
@@ -293,7 +292,7 @@ const Skills = () => {
               Ready to Work Together?
             </h3>
             <p className="text-gray-300 mb-6 text-lg">
-              Download my CV to learn more about my experience and let's create
+              Download my CV to learn more about my experience and let&apos;s create
               something amazing together!
             </p>
             <button
