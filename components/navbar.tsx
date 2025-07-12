@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import iconLinks from "./data/links";
 import Image from "next/image";
 import { AlignJustify } from "lucide-react";
+import SocialLink from "./reusable_components/social-link";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -120,22 +120,7 @@ export const Navbar = () => {
           } md:flex items-center space-x-4 w-full md:w-fit justify-between`}
         >
           <div className="flex gap-x-5 order-2 md:order-1">
-            {iconLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative w-6 h-6"
-              >
-                <Image
-                  src={link.imageUrl}
-                  alt={link.alt}
-                  fill
-                  className="object-contain"
-                />
-              </a>
-            ))}
+            <SocialLink />
           </div>
 
           <Link href="#connect" className="order-1 md:order-2">

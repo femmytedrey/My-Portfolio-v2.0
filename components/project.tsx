@@ -9,6 +9,7 @@ import ProjectModal from "./project-modal";
 import { categories } from "./data/project-data";
 import AllProject from "./all-project";
 import FeaturedProject from "./featured-project";
+import { motion, AnimatePresence } from "motion/react";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -73,7 +74,13 @@ const Projects = () => {
         />
 
         {error && (
-          <div className="flex flex-col items-center justify-center min-h-[400px] text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex flex-col items-center justify-center min-h-[400px] text-center mb-20"
+          >
             <div className="bg-red-500/10 border border-red-500/20 rounded-full p-4 mb-6">
               <AlertCircle className="w-12 h-12 text-red-400" />
             </div>
@@ -90,7 +97,7 @@ const Projects = () => {
               <RefreshCw className="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" />
               Try Again
             </button>
-          </div>
+          </motion.div>
         )}
 
         {/* Featured Projects Carousel */}
@@ -109,10 +116,14 @@ const Projects = () => {
             className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 transition-all duration-1000 delay-600 `}
           >
             {categories.map((category) => (
-              <button
+              <motion.button
+                initial={{ scale: 1, y: 0 }}
+                whileTap={{ y: 5 }}
+                whileHover={{scale: 1.1}}
+                transition={{duration: 0.3}}
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
+                className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 font-semibold text-sm sm:text-base ${
                   activeCategory === category.id
                     ? "border border-white/50 bg-gradient-to-r from-[#aa367c80] to-[#4a2fbd80] text-white"
                     : "border border-gray-600 bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500"
@@ -120,7 +131,7 @@ const Projects = () => {
               >
                 {category.icon}
                 <span className="ml-2">{category.name}</span>
-              </button>
+              </motion.button>
             ))}
           </div>
         )}
@@ -137,12 +148,14 @@ const Projects = () => {
       </div>
 
       {/* Project Modal */}
-      {selectedProject && (
+      <AnimatePresence>
+        {selectedProject && (
         <ProjectModal
           selectedProject={selectedProject}
           setSelectedProject={setSelectedProject}
         />
       )}
+      </AnimatePresence>
     </section>
   );
 };

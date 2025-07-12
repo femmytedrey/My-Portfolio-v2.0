@@ -4,6 +4,7 @@ import { Download } from "lucide-react";
 import { motion } from "motion/react";
 import HeaderSection from "./reusable_components/header-section";
 import { categories, skills } from "./data/skills";
+import { Links } from "@/types/link.type";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -14,13 +15,7 @@ const Skills = () => {
       : skills.filter((skill) => skill.category === activeCategory);
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV file path
-    const link = document.createElement("a");
-    link.href = "/assets/cv/FemiDev-CV.pdf";
-    link.download = "FemiDev-CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(Links.CV, "_blank");
   };
 
   return (
@@ -116,16 +111,16 @@ const Skills = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ ease: "easeOut" }}
-          className={`text-center transition-all duration-1000 delay-800 `}
+          transition={{ ease: "easeInOut", duration: 0.8, delay: 0.4 }}
+          className="text-center"
         >
           <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               Ready to Work Together?
             </h3>
             <p className="text-gray-300 mb-6 text-lg">
-              Download my CV to learn more about my experience and let&apos;s create
-              something amazing together!
+              Download my CV to learn more about my experience and let&apos;s
+              create something amazing together!
             </p>
             <button
               onClick={handleDownloadCV}
@@ -145,7 +140,7 @@ const Skills = () => {
           className={`grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-900 `}
         >
           {[
-            { number: "50+", label: "Projects Completed" },
+            { number: "10+", label: "Projects Completed" },
             { number: "3+", label: "Years Experience" },
             { number: "20+", label: "Technologies" },
             { number: "100%", label: "Client Satisfaction" },

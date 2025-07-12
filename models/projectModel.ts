@@ -33,7 +33,7 @@ const projectSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, "Please provide a category"],
-    enum: ['web', 'mobile', 'fullstack', 'design'],
+    enum: ['frontend', 'mobile', 'fullstack', 'design'],
   },
   featured: {
     type: Boolean,

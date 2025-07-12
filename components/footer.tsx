@@ -2,35 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
   Mail, 
   Phone, 
   MapPin,
   Heart
 } from "lucide-react";
+import SocialLink from "./reusable_components/social-link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: <Github className="w-5 h-5" />,
-      url: "https://github.com/femidev",
-    },
-    {
-      name: "LinkedIn", 
-      icon: <Linkedin className="w-5 h-5" />,
-      url: "https://linkedin.com/in/femidev",
-    },
-    {
-      name: "Twitter",
-      icon: <Twitter className="w-5 h-5" />,
-      url: "https://twitter.com/femidev",
-    },
-  ];
 
   return (
     <footer className="bg-[#121212] text-white">
@@ -75,21 +55,8 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex flex-col md:items-end">
-              <h4 className="text-lg font-semibold mb-4 text-white">Follow Me</h4>
-              <div className="flex space-x-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300 rounded-lg"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
+              <h4 className="text-lg font-semibold mb-4 text-white text-start">Follow Me</h4>
+              <SocialLink />
             </div>
           </div>
         </div>

@@ -118,7 +118,13 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Contact Image */}
-          <div className="order-2 lg:order-1">
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="order-2 lg:order-1"
+          >
             <div className="relative h-[400px] lg:h-[550px]">
               <Image
                 src="/assets/img/contact-img.svg"
@@ -128,10 +134,16 @@ const Contact = () => {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="order-1 lg:order-2">
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="order-1 lg:order-2"
+          >
             <div className="mb-10">
               <h2 className="text-4xl lg:text-5xl font-bold mb-4">
                 Let&apos;s work together
@@ -240,7 +252,7 @@ const Contact = () => {
                 </span>
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

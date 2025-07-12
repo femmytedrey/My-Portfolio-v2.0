@@ -5,7 +5,7 @@ export interface ProjectType {
   longDescription: string;
   image: string;
   technologies: string[];
-  category: "web" | "mobile" | "fullstack" | "design";
+  category: "frontend" | "mobile" | "fullstack" | "design";
   featured: boolean;
   liveUrl?: string;
   githubUrl: string;

@@ -2,14 +2,17 @@ import { ProjectType } from "@/types/project.type";
 import { getStatusColor, getStatusText } from "@/util/util";
 import { ExternalLink, Github, X } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import { motion } from "motion/react";
 
 interface ProjectModalProps {
   selectedProject: ProjectType;
   setSelectedProject: (project: ProjectType | null) => void;
 }
 
-const ProjectModal = ({ selectedProject, setSelectedProject }: ProjectModalProps) => {
+const ProjectModal = ({
+  selectedProject,
+  setSelectedProject,
+}: ProjectModalProps) => {
   return (
     <div
       onClick={() => {
@@ -17,7 +20,10 @@ const ProjectModal = ({ selectedProject, setSelectedProject }: ProjectModalProps
       }}
       className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4"
     >
-      <div
+      <motion.div
+        initial={{ scale: 0.3, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.3, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
         className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
       >
@@ -114,7 +120,7 @@ const ProjectModal = ({ selectedProject, setSelectedProject }: ProjectModalProps
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
