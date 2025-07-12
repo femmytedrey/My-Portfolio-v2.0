@@ -73,8 +73,8 @@ export const sendEmail = async ({ data }: sendEmailProp) => {
       transport.sendMail(confirmationEmail),
     ]);
 
-    console.log("Notification sent:", notification.messageId);
-    console.log("Confirmation sent:", confirmation.messageId);
+    // console.log("Notification sent:", notification.messageId);
+    // console.log("Confirmation sent:", confirmation.messageId);
 
     return {
       success: true,
@@ -82,7 +82,16 @@ export const sendEmail = async ({ data }: sendEmailProp) => {
       confirmationId: confirmation.messageId,
     };
   } catch (error) {
-    // console.error("Email error: ", error);
-    throw new Error("Failed to send emails");
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Unknown error occurred while sending emails";
+
+    // console.error("❌ Email sending failed:", errorMessage);
+
+    return {
+      success: false,
+      error: errorMessage,
+    };
   }
 };

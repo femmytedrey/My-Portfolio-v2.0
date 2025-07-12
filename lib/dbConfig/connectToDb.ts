@@ -37,8 +37,11 @@ export const connectToDb = async () => {
     console.log("Initialized connection to mongoDB");
 
     return await promise;
-  } catch (error: any) {
-    //console.log(error);
-    throw new Error(error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    } else {
+      throw new Error(String(error));
+    }
   }
 };

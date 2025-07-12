@@ -69,10 +69,10 @@ export const POST = async (request: NextRequest) => {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    // console.error("Contact API Error:", error);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Failed to send, please try again.";
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 };

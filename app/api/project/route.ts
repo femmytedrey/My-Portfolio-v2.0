@@ -28,7 +28,7 @@ export const GET = async () => {
       projects: transformedProjects,
     });
   } catch (error) {
-    // console.error("Get projects error:", error);
+    console.error("Get projects error:", error);
     return NextResponse.json(
       { error: "Failed to fetch projects" },
       { status: 500 }
@@ -75,10 +75,10 @@ export const POST = async (request: NextRequest) => {
       project: savedProject,
     });
   } catch (error) {
-    console.error("Project creation error:", error);
-    return NextResponse.json(
-      { error: "Failed to create project" },
-      { status: 500 }
-    );
+    // console.error("Project creation error:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Failed to create project";
+
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 };
