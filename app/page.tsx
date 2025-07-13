@@ -9,9 +9,9 @@ import ScrollIndicator from "@/lib/util/scroll-indicator";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="overflow-hidden">
       <ScrollIndicator />
-      <div className="text-center">
+      <div className="text-center relative">
         <Navbar />
         <Banner />
         <Skills />
