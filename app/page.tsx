@@ -9,7 +9,7 @@ import ScrollIndicator from "@/lib/util/scroll-indicator";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full">
       <ScrollIndicator />
       <div className="text-center">
         <Navbar />
@@ -20,6 +20,6 @@ export default function Home() {
         <Footer />
         <BackToTop />
       </div>
-    </>
+    </div>
   );
 }
