@@ -40,7 +40,7 @@ const ProjectModal = ({
           {/* Close Button */}
           <button
             onClick={() => setSelectedProject(null)}
-            className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-all duration-300 rounded"
+            className="absolute top-4 right-4 p-2 bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] text-white hover:text-white/60 transition-all duration-300 rounded"
           >
             <X className="w-5 h-5" />
           </button>

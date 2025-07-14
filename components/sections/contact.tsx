@@ -93,15 +93,10 @@ const Contact = () => {
         setStatus({});
       }, 4000);
     } catch (error) {
-      let errorMessage = "Something went wrong";
+      let errorMessage = "Something went wrong. Please try again.";
 
-      if (error instanceof Error) {
-        errorMessage = error.message;
-      } else if (typeof error === "string") {
-        errorMessage = error;
-      } else if (error && typeof error === "object" && "response" in error) {
-        const axiosError = error as AxiosError<{ error?: string }>;
-        errorMessage = axiosError.response?.data?.error || "API Error";
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        errorMessage = error.response.data.message;
       }
       setStatus({ success: false, message: errorMessage });
       setButtonText("Send Message");

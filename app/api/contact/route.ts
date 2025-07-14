@@ -1,5 +1,6 @@
 import { sendEmail } from "@/lib/util/mailer";
 import { ContactFormType } from "@/types/contact-form.type";
+import { response } from "@/types/error";
 import { NextResponse, NextRequest } from "next/server";
 import validator from "validator";
 
@@ -19,38 +20,43 @@ export const POST = async (request: NextRequest) => {
 
     //validate
     if (!validator.isEmail(email) || !email) {
-      return NextResponse.json(
-        { error: "Please provide a valid email address" },
-        { status: 400 }
-      );
+      return response({
+        success: false,
+        message: "Please provide a valid email address",
+        status: 400,
+      });
     }
 
     if (!firstName || firstName.trim().length < 2) {
-      return NextResponse.json(
-        { error: "First name must be at least 2 characters" },
-        { status: 400 }
-      );
+      return response({
+        success: false,
+        message: "First name must be at least 2 characters",
+        status: 400,
+      });
     }
 
     if (!lastName || lastName.trim().length < 2) {
-      return NextResponse.json(
-        { error: "Last name must be at least 2 characters" },
-        { status: 400 }
-      );
+      return response({
+        success: false,
+        message: "Last name must be at least 2 characters",
+        status: 400,
+      });
     }
 
     if (!phone || phone.trim().length < 7 || phone.trim().length > 15) {
-      return NextResponse.json(
-        { error: "Please provide a valid phone number" },
-        { status: 400 }
-      );
+      return response({
+        success: false,
+        message: "Please provide a valid phone number",
+        status: 400,
+      });
     }
 
     if (!message || message.trim().length < 10) {
-      return NextResponse.json(
-        { error: "Message must be at least 10 characters" },
-        { status: 400 }
-      );
+      return response({
+        success: false,
+        message: "Message must be at least 10 characters",
+        status: 400,
+      });
     }
 
     const cleanData = {
@@ -61,18 +67,18 @@ export const POST = async (request: NextRequest) => {
       message: message.trim(),
     };
 
-    sendEmail({ data: cleanData });
+    await sendEmail({ data: cleanData });
 
-    return NextResponse.json({
+    return response({
       success: true,
-      message: "Contact form submitted successfully",
-      timestamp: new Date().toISOString(),
+      message: "Message sent successfully!",
+      status: 200,
     });
   } catch (error) {
     const errorMessage =
       error instanceof Error
         ? error.message
-        : "Failed to send, please try again.";
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+        : "Something went wrong. Please try again.";
+    return response({ success: false, message: errorMessage, status: 500 });
   }
 };

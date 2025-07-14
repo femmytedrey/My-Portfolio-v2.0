@@ -87,11 +87,6 @@ export const sendEmail = async ({ data }: sendEmailProp) => {
         ? error.message
         : "Unknown error occurred while sending emails";
 
-    // console.error("❌ Email sending failed:", errorMessage);
-
-    return {
-      success: false,
-      error: errorMessage,
-    };
+    throw new Error(errorMessage);
   }
 };

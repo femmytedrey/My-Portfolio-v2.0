@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Project } from "@/models/projectModel";
 import { connectToDb } from "@/lib/dbConfig/connectToDb";
-
-connectToDb();
+import { response } from "@/types/error";
 
 export const GET = async () => {
   try {
+    await connectToDb();
     const projects = await Project.find({}).sort({ createdAt: -1 });
 
     const transformedProjects = projects.map((project) => ({
@@ -38,6 +38,7 @@ export const GET = async () => {
 
 export const POST = async (request: NextRequest) => {
   try {
+    await connectToDb();
     const reqBody = await request.json();
     const {
       title,
@@ -79,6 +80,6 @@ export const POST = async (request: NextRequest) => {
     const errorMessage =
       error instanceof Error ? error.message : "Failed to create project";
 
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return response({ success: false, message: errorMessage, status: 500 });
   }
 };

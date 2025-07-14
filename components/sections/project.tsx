@@ -34,17 +34,10 @@ const Projects = () => {
     } catch (error) {
       let errorMessage = "Something went wrong";
 
-      if (error instanceof Error) {
-        errorMessage = error.message;
-      } else if (typeof error === "string") {
-        errorMessage = error;
-      } else if (error && typeof error === "object" && "response" in error) {
-        const axiosError = error as AxiosError<{ error?: string }>;
-        errorMessage = axiosError.response?.data?.error || "API Error";
+      if (error instanceof AxiosError && error.response?.data?.message) {
+        errorMessage = error.response.data.message;
       }
-      setError(
-        errorMessage || "Unable to load projects. Please check your connection."
-      );
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

@@ -1,10 +1,10 @@
 import { ProjectType } from "@/types/project.type";
-import React from "react";
 import ProjectSkeleton from "../loaders/project-skeleton";
 import { categories } from "../../data/project-data";
 import { ArrowRight, Code, ExternalLink, Github, Star } from "lucide-react";
 import Image from "next/image";
 import { getStatusColor, getStatusText } from "@/lib/util/util";
+import { useState } from "react";
 
 interface AllProjectProps {
   isLoading: boolean;
@@ -23,6 +23,7 @@ const AllProject = ({
   error,
   projects,
 }: AllProjectProps) => {
+  const [itemsToShow, setItemsToShow] = useState(6);
   const filteredProjects =
     activeCategory === "all"
       ? projects
@@ -74,7 +75,7 @@ const AllProject = ({
 
       <div className={`transition-all duration-1000 delay-700 `}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.slice(0, itemsToShow).map((project, index) => (
             <div
               key={index || project.id}
               className="group bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 overflow-hidden hover:border-gray-600 transition-all duration-500 transform hover:scale-105"
@@ -173,7 +174,10 @@ const AllProject = ({
       {/* Load More Button */}
       {filteredProjects.length > 6 && (
         <div className="text-center mt-12">
-          <button className="group relative overflow-hidden border border-white text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={() => setItemsToShow(itemsToShow + 6)}
+            className="group relative overflow-hidden border border-white text-white px-8 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+          >
             <span className="relative z-10 transition-all group-hover:text-black">
               Load More Projects
               <ArrowRight className="inline ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

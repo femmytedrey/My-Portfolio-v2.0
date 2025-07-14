@@ -94,9 +94,9 @@ const Skills = () => {
               <div className="relative">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm text-gray-400">Proficiency</span>
-                  <span className="text-sm font-semibold text-white">
+                  {/* <span className="text-sm font-semibold text-white">
                     {skill.level}%
-                  </span>
+                  </span> */}
                 </div>
                 <div className="w-full bg-gray-700 h-2">
                   <div className="bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] h-2 transition-all duration-1000 ease-out"></div>
