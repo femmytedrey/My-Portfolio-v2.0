@@ -30,7 +30,7 @@ const Footer = () => {
                 <div className="flex items-center text-gray-300">
                   <Mail className="w-4 h-4 mr-3 text-gray-400" />
                   <a
-                    href="mailto:hello@femidev.com"
+                    href="mailto:femmytedrey@gmail.com"
                     className="hover:text-white transition-colors"
                   >
                     femmytedrey@gmail.com
@@ -39,7 +39,7 @@ const Footer = () => {
                 <div className="flex items-center text-gray-300">
                   <Phone className="w-4 h-4 mr-3 text-gray-400" />
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+2349067401594"
                     className="hover:text-white transition-colors"
                   >
                     +234 (906) 740-1594

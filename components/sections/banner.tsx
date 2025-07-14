@@ -56,7 +56,7 @@ const Banner = () => {
           initial={{ opacity: 0, translateX: -80 }}
           animate={{ opacity: 1, translateX: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex-1 space-y-4 sm:space-y-6 text-center lg:text-start order-2 lg:order-1"
+          className="flex-1 space-y-4 sm:space-y-6 text-center lg:text-start order-2 lg:order-1 pb-10 md:pb-0"
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
