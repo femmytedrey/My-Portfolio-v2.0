@@ -1,15 +1,9 @@
-import {
-  Code,
-  Database,
-  Globe,
-  Server,
-  Palette,
-} from "lucide-react";
+import { Code, Database, Globe, Server, Palette, Phone } from "lucide-react";
 
 interface Skill {
   name: string;
   level: number;
-  category: "frontend" | "backend" | "tools" | "design";
+  category: "frontend" | "backend" | "mobile" | "tools" | "design";
   icon: React.ReactNode;
 }
 
@@ -81,6 +75,13 @@ export const skills: Skill[] = [
   },
   // { name: 'GraphQL', level: 80, category: 'backend', icon: <Database className="w-5 h-5" /> },
 
+  //mobile
+  {
+    name: "React Native",
+    level: 80,
+    category: "mobile",
+    icon: <Phone />,
+  },
   // Tools
   {
     name: "Git/GitHub",
@@ -115,6 +116,7 @@ export const skills: Skill[] = [
 export const categories = [
   { id: "all", name: "All Skills" },
   { id: "frontend", name: "Frontend" },
+  { id: "mobile", name: "Mobile App" },
   { id: "backend", name: "Backend" },
   { id: "tools", name: "Tools" },
   { id: "design", name: "Design" },

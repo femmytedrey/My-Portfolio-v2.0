@@ -85,7 +85,7 @@ const Banner = () => {
             transition={{ delay: 1, duration: 0.7 }}
             className="max-w-xl mx-auto lg:mx-0 text-gray-200 text-base sm:text-lg leading-relaxed"
           >
-            I&apos;m a web developer with expertise in both frontend and backend
+            I&apos;m a web developer with expertise in both frontend, mobile app and backend
             development. From crafting intuitive user interfaces to building
             robust backend systems, I create seamless and scalable digital
             experiences.
