@@ -86,7 +86,7 @@ const AllProject = ({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
@@ -129,15 +129,15 @@ const AllProject = ({
               {/* Project Info */}
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#aa367c] group-hover:to-[#4a2fbd] transition-all duration-300">
+                  <h3 className="text-lg font-bold text-white">
                     {project.title}
                   </h3>
                   {project.featured && (
-                    <Star className="w-4 h-4 text-yellow-400" />
+                    <Star className="w-4 h-4 text-yellow-600" />
                   )}
                 </div>
 
-                <p className="text-gray-300 text-sm mb-3 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-3 leading-relaxed text-left">
                   {project.description}
                 </p>
 

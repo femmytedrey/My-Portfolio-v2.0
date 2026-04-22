@@ -118,7 +118,7 @@ const Projects = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 font-semibold text-sm sm:text-base ${
                   activeCategory === category.id
-                    ? "border border-white/50 bg-gradient-to-r from-[#aa367c80] to-[#4a2fbd80] text-white"
+                    ? "border border-white/50 bg-[#4a2fbd80] text-white"
                     : "border border-gray-600 bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500"
                 }`}
               >

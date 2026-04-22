@@ -29,7 +29,7 @@ const FeaturedProject = ({
           >
             {/* Featured Badge */}
             <div className="absolute top-4 left-4 z-20">
-              <span className="flex items-center px-3 py-1 bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] text-white text-sm font-medium rounded-full">
+              <span className="flex items-center px-3 py-1 bg-[#aa367c] text-white text-sm font-medium rounded-full">
                 <Star className="w-3 h-3 mr-1" />
                 Featured
               </span>
@@ -82,7 +82,7 @@ const FeaturedProject = ({
                   )}
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="p-3 bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] text-white hover:from-[#4a2fbd] hover:to-[#aa367c] transition-all duration-300 transform hover:scale-110"
+                      className="p-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-110"
                   >
                     <Eye className="w-5 h-5" />
                   </button>
@@ -93,7 +93,7 @@ const FeaturedProject = ({
             {/* Project Info */}
             <div className="p-6">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#aa367c] group-hover:to-[#4a2fbd] transition-all duration-300">
+                <h3 className="text-xl font-bold text-white ">
                   {project.title}
                 </h3>
                 <span className="flex items-center text-gray-400 text-sm">
@@ -102,7 +102,7 @@ const FeaturedProject = ({
                 </span>
               </div>
 
-              <p className="text-gray-300 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed text-left">
                 {project.description}
               </p>
 
@@ -126,7 +126,7 @@ const FeaturedProject = ({
               {/* Learn More Button */}
               <button
                 onClick={() => setSelectedProject(project)}
-                className="group/btn flex items-center text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#aa367c] hover:to-[#4a2fbd] transition-all duration-300"
+                className="group/btn flex items-center text-white "
               >
                 Learn More
                 <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />

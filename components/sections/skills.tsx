@@ -20,7 +20,7 @@ const Skills = () => {
 
   return (
     <section
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 to-black text-white relative"
+      className="py-16 sm:py-20 lg:py-24 bg-black/80 text-white relative"
       id="skills"
     >
       {/* Subtle background pattern */}
@@ -58,7 +58,7 @@ const Skills = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-4 sm:px-6 py-2 sm:py-3 font-semibold transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
                 activeCategory === category.id
-                  ? "border border-white/50 bg-gradient-to-r from-[#aa367c80] to-[#4a2fbd80] text-white"
+                  ? "border border-white/50 bg-[#4a2fbd80] text-white"
                   : "border border-gray-600 bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:border-gray-500"
               }`}
             >
@@ -77,13 +77,13 @@ const Skills = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{
                 duration: 0.5,
-                delay: index * 0.08,
+                delay: Math.min(index * 0.08, 0.4),
                 ease: "easeOut",
               }}
               className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 hover:border-gray-600 hover:bg-gray-800/70 transition-all duration-500 transform hover:scale-105"
             >
               <div className="flex items-center mb-4">
-                <div className="p-2 bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] mr-3">
+                <div className="p-2 bg-[#4a2fbd80] mr-3">
                   {skill.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-white">
@@ -99,7 +99,7 @@ const Skills = () => {
                   </span> */}
                 </div>
                 <div className="w-full bg-gray-700 h-2">
-                  <div className="bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] h-2 transition-all duration-1000 ease-out"></div>
+                  <div className="bg-[#4a2fbd80] h-2 transition-all duration-1000 ease-out"></div>
                 </div>
               </div>
             </motion.div>

@@ -15,7 +15,8 @@ const ScrollIndicator = () => {
           right: 0,
           height: 10,
           originX: 0,
-          background: "linear-gradient(to right, #4a2fbd, #aa367c)",
+          // background: "linear-gradient(to right, #4a2fbd, #aa367c)",
+          background: "#4a2fbd80",
         }}
       />
     </div>

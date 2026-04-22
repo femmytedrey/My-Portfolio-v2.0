@@ -66,12 +66,35 @@ export const skills: Skill[] = [
     category: "backend",
     icon: <Database className="w-5 h-5" />,
   },
-  // { name: 'PostgreSQL', level: 87, category: 'backend', icon: <Database className="w-5 h-5" /> },
   {
     name: "Express.js",
     level: 92,
     category: "backend",
     icon: <Server className="w-5 h-5" />,
+  },
+  {
+    name: "Nest.js",
+    level: 92,
+    category: "backend",
+    icon: <Server className="w-5 h-5" />,
+  },
+  {
+    name: "PostgreSQL",
+    level: 92,
+    category: "backend",
+    icon: <Database className="w-5 h-5" />,
+  },
+  {
+    name: "Prisma",
+    level: 92,
+    category: "backend",
+    icon: <Database className="w-5 h-5" />,
+  },
+  {
+    name: "Jest/Vitest",
+    level: 80,
+    category: "backend",
+    icon: <Code className="w-5 h-5" />,
   },
   // { name: 'GraphQL', level: 80, category: 'backend', icon: <Database className="w-5 h-5" /> },
 
@@ -86,6 +109,12 @@ export const skills: Skill[] = [
   {
     name: "Git/GitHub",
     level: 95,
+    category: "tools",
+    icon: <Code className="w-5 h-5" />,
+  },
+  {
+    name: "GitHub Actions",
+    level: 78,
     category: "tools",
     icon: <Code className="w-5 h-5" />,
   },

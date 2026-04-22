@@ -107,7 +107,7 @@ const Contact = () => {
 
   return (
     <section
-      className="py-20 lg:py-28 bg-gradient-to-r from-[#aa367c] to-[#4a2fbd] text-white"
+      className="py-20 lg:py-28 bg-[#4a2fbd80] text-white"
       id="connect"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">

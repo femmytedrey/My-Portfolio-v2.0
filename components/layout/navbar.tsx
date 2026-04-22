@@ -30,8 +30,8 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 py-4 transition-all duration-500 ease-in-out 
-    bg-[#121212] z-40
-    ${scrolled ? "md:bg-[#121212]" : "md:bg-transparent"}`}
+    bg-[#080808] z-40
+    ${scrolled ? "md:bg-[#080808]" : "md:bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-10 xl:px-0 flex items-center justify-between md:hidden">
         <Link href="#home" className="w-32 relative aspect-[3/1]">

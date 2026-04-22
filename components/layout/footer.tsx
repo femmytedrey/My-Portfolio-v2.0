@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#121212] text-white">
+    <footer className="bg-[#080808] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
         {/* Main Footer */}
         <div className="py-12 lg:py-16">
@@ -67,8 +67,8 @@ const Footer = () => {
           <div className="flex justify-center items-center">
             <div className="flex items-center text-gray-400 text-sm">
               <span>© {currentYear} Made with</span>
-              <Heart className="w-4 h-4 mx-1 text-red-500" />
-              <span>by FemiDev</span>
+              {/* <Heart className="w-4 h-4 mx-1 text-red-500" />
+              <span>by FemiDev</span> */}
             </div>
           </div>
         </div>
