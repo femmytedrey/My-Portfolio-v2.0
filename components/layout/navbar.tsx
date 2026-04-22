@@ -1,14 +1,16 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AlignJustify } from "lucide-react";
 import SocialLink from "../ui/social-link";
+import { menu } from "motion/react-client";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const showMenuOnMobile = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -27,8 +29,20 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <nav
+      ref={menuRef}
       className={`fixed top-0 left-0 right-0 py-4 transition-all duration-500 ease-in-out 
     bg-[#080808] z-40
     ${scrolled ? "md:bg-[#080808]" : "md:bg-transparent"}`}

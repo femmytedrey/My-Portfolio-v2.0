@@ -66,7 +66,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex justify-center items-center">
             <div className="flex items-center text-gray-400 text-sm">
-              <span>© {currentYear} Made with</span>
+              <span>© {currentYear} FemiDev</span>
               {/* <Heart className="w-4 h-4 mx-1 text-red-500" />
               <span>by FemiDev</span> */}
             </div>
